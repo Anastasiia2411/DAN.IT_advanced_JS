@@ -31,6 +31,7 @@ const books = [
 ];
 
 
+let ul = document.createElement("ul")
 for (let book of books) {
     try {
         if (!book.hasOwnProperty("price")) {
@@ -42,15 +43,14 @@ for (let book of books) {
         if (!book.hasOwnProperty("name")) {
             throw new Error("name");
         }
-        let ul = document.createElement("ul");
-        for (let el in book) {
-            let li = document.createElement("li");
-            let string = `${el}: ${book[el]};`
-            li.append(string);
-            ul.append(li);
-            document.body.append(ul);
-        }
-    } catch (error) {
-        console.error(`Error! missing field ${error.message} `);
+    let li = document.createElement("li")
+    ul.append(li)
+    for (let el in book) {
+        let text = `${el}: ${book[el]}, `
+        li.append(text)
     }
-}
+    document.body.append(ul)
+}catch (error) {
+        console.error(`Error! missing field ${error.message} `);
+    }}
+
