@@ -38,7 +38,7 @@ async function getData() {
         ol2.style.margin = "0 auto";
         div2.style.display = "block";
         let requests = linksCharacters.map(char => fetch(char));
-        Promise.all(requests).then(responses => Promise.all(responses.map(r => r.json())))
+        Promise.all(requests).then(responses => Promise.all(responses.map( r => r.json())))
             .then(actors => actors.forEach(actor => {
                 let li2 = document.createElement("li");
                 div2.style.display = "none";
